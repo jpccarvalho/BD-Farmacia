@@ -17,6 +17,13 @@ public class ProdutoService {
     public List<Produto> getAllProdutos() {
         return produtoRepository.findAll();
     }
+    public List<Produto> getProdutoByNomeCliente(String nome) {
+        return produtoRepository.getProdutoByNomeCliente(nome);
+    }
+
+    public List<Produto> busca22E23() {
+        return produtoRepository.busca22E23();
+    }
 
     public Optional<Produto> getProdutoById(Long id) {
         return produtoRepository.findById(id);

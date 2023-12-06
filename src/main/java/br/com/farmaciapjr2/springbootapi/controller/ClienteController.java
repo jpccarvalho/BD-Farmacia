@@ -20,6 +20,22 @@ public class ClienteController {
         return clienteService.getAllClientes();
     }
 
+    @GetMapping("/maior-que-mg")
+    public List<Cliente> comprasMaiorQueMG() {
+        return clienteService.comprasMaiorQueMG();
+    }
+
+
+    @GetMapping("/clientes-uma-compra")
+    public List<Cliente> clientesPeloMenosUmaCompra() {
+        return clienteService.clientesPeloMenosUmaCompra();
+    }
+
+    @GetMapping("/ordenado")
+    public List<Cliente> todosClientesOrdenadosPorNome() {
+        return clienteService.todosClientesOrdenadosPorNome();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> getClienteById(@PathVariable Long id) {
         return clienteService.getClienteById(id)

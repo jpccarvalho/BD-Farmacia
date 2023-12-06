@@ -18,6 +18,15 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
+
+    public List<Cliente> todosClientesOrdenadosPorNome() {
+        return clienteRepository.todosClientesOrdenadosPorNome();
+    }
+
+    public List<Cliente> comprasMaiorQueMG() { return clienteRepository.comprasMaiorQueMG();}
+
+    public List<Cliente> clientesPeloMenosUmaCompra(){ return clienteRepository.clientesPeloMenosUmaCompra();}
+
     public Optional<Cliente> getClienteById(Long id) {
         return clienteRepository.findById(id);
     }

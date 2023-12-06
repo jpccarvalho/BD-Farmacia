@@ -20,6 +20,16 @@ public class ProdutoController {
         return produtoService.getAllProdutos();
     }
 
+    @GetMapping("/produto-por-cliente/{nome}")
+    public List<Produto> getProdutoByNomeCliente(@PathVariable String nome) {
+        return produtoService.getProdutoByNomeCliente(nome);
+    }
+
+    @GetMapping("/produtos-22-e-23")
+    public List<Produto> busca22E23() {
+        return produtoService.busca22E23();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Produto> getProdutoById(@PathVariable Long id) {
         return produtoService.getProdutoById(id)
