@@ -1,7 +1,7 @@
-package br.com.farmaciapjr2.controller;
+package br.com.farmaciapjr2.springbootapi.controller;
 
-import br.com.farmaciapjr2.model.Fabricante;
-import br.com.farmaciapjr2.service.FabricanteService;
+import br.com.farmaciapjr2.springbootapi.model.Fabricante;
+import br.com.farmaciapjr2.springbootapi.service.FabricanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -19,6 +19,11 @@ public class CompraController {
     public List<Compra> getAllCompras() {
         return compraService.getAllCompras();
     }
+    @GetMapping("/compra-by-nome/{nome}")
+    public List<Compra> findCompraByNome(@PathVariable String nome) {
+        return compraService.findCompraByNome(nome);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Compra> getCompraById(@PathVariable Long id) {

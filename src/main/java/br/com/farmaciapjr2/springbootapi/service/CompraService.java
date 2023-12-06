@@ -1,7 +1,7 @@
-package br.com.farmaciapjr2.service;
+package br.com.farmaciapjr2.springbootapi.service;
 
-import br.com.farmaciapjr2.model.Compra;
-import br.com.farmaciapjr2.repository.CompraRepository;
+import br.com.farmaciapjr2.springbootapi.model.Compra;
+import br.com.farmaciapjr2.springbootapi.repository.CompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,10 @@ public class CompraService {
 
     public List<Compra> getAllCompras() {
         return compraRepository.findAll();
+    }
+
+    public List<Compra> findCompraByNome(String nome) {
+        return compraRepository.findCompraByNome(nome);
     }
 
     public Optional<Compra> getCompraById(Long id) {

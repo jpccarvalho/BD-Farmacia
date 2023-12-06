@@ -1,7 +1,7 @@
-package br.com.farmaciapjr2.controller;
+package br.com.farmaciapjr2.springbootapi.controller;
 
-import br.com.farmaciapjr2.model.TipoProduto;
-import br.com.farmaciapjr2.service.TipoProdutoService;
+import br.com.farmaciapjr2.springbootapi.model.TipoProduto;
+import br.com.farmaciapjr2.springbootapi.service.TipoProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

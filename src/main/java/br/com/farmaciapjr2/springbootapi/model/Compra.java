@@ -1,4 +1,6 @@
-import javax.persistence.*;
+package br.com.farmaciapjr2.springbootapi.model;
+
+import jakarta.persistence.*;
 import java.util.Date;
 import lombok.*;
 
