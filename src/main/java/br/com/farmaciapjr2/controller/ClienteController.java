@@ -1,7 +1,7 @@
 package br.com.farmaciapjr2.controller;
 
-import com.suaempresa.model.Cliente;
-import com.suaempresa.service.ClienteService;
+import br.com.farmaciapjr2.model.Cliente;
+import br.com.farmaciapjr2.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
