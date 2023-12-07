@@ -1,4 +1,7 @@
-import javax.persistence.*;
+package br.com.farmaciapjr2.springbootapi.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -9,5 +12,6 @@ public class Fabricante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("fabricante")
     private String fabricante;
 }
