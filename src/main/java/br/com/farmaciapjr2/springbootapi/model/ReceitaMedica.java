@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +20,6 @@ public class ReceitaMedica {
     @JoinColumn(name = "id_medico")
     private Medico medico;
 
+    @JsonProperty("receita")
     private String receita;
 }

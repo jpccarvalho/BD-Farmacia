@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +20,6 @@ public class ProdutoCompra {
     @JoinColumn(name = "id_compra")
     private Compra compra;
 
+    @JsonProperty("quantidade")
     private int quantidade;
 }

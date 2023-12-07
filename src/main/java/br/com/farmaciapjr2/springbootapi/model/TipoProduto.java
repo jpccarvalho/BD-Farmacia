@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,5 +12,6 @@ public class TipoProduto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("tipo")
     private String tipo;
 }
