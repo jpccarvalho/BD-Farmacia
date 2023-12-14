@@ -28,7 +28,7 @@ O banco de dados utilizado foi o ``mysql``.
 
 O MER do banco de dados é o seguinte:
 
-![MER](MER.png)
+![MER](MER.jpeg)
 
 Observe que o banco de dados possuí 8 tabelas, sendo todas elas relacionadas entre si.
 
