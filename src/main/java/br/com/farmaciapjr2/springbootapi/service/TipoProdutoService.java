@@ -23,7 +23,6 @@ public class TipoProdutoService {
     }
 
     public TipoProduto createTipoProduto(TipoProduto tipoProduto) {
-        // Lógica de validação ou processamento adicional, se necessário
         return tipoProdutoRepository.save(tipoProduto);
     }
 

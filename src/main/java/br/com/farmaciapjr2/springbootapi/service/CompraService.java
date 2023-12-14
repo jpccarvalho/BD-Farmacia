@@ -27,7 +27,6 @@ public class CompraService {
     }
 
     public Compra createCompra(Compra compra) {
-        // Lógica de validação ou processamento adicional, se necessário
         return compraRepository.save(compra);
     }
 

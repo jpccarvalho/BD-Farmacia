@@ -32,7 +32,6 @@ public class ClienteService {
     }
 
     public Cliente createCliente(Cliente cliente) {
-        // Lógica de validação ou processamento adicional, se necessário
         return clienteRepository.save(cliente);
     }
 

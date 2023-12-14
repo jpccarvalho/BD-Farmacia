@@ -30,7 +30,6 @@ public class ProdutoService {
     }
 
     public Produto createProduto(Produto produto) {
-        // Lógica de validação ou processamento adicional, se necessário
         return produtoRepository.save(produto);
     }
 
