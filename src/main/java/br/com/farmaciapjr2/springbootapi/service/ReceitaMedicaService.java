@@ -23,7 +23,6 @@ public class ReceitaMedicaService {
     }
 
     public ReceitaMedica createReceitaMedica(ReceitaMedica receitaMedica) {
-        // Lógica de validação ou processamento adicional, se necessário
         return receitaMedicaRepository.save(receitaMedica);
     }
 

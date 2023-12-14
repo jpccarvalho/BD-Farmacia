@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "cliente")
 @Data
@@ -38,4 +40,13 @@ public class Cliente {
     @NonNull
     @JsonProperty("numeroContribuinte")
     private String numeroContribuinte;
+
+    public Cliente(@NonNull String nome, @NonNull String endereco, @NonNull String telefone, @NonNull String codigoPostal, @NonNull String localidade, @NonNull String numeroContribuinte) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.codigoPostal = codigoPostal;
+        this.localidade = localidade;
+        this.numeroContribuinte = numeroContribuinte;
+    }
 }

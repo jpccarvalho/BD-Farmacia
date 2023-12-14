@@ -23,7 +23,6 @@ public class MedicoService {
     }
 
     public Medico createMedico(Medico medico) {
-        // Lógica de validação ou processamento adicional, se necessário
         return medicoRepository.save(medico);
     }
 

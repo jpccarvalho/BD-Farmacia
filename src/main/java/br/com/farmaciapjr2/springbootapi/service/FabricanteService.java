@@ -23,7 +23,6 @@ public class FabricanteService {
     }
 
     public Fabricante createFabricante(Fabricante fabricante) {
-        // Lógica de validação ou processamento adicional, se necessário
         return fabricanteRepository.save(fabricante);
     }
 
