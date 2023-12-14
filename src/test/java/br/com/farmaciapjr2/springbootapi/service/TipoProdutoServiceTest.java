@@ -90,7 +90,7 @@ public class TipoProdutoServiceTest {
     }
 
     @Test
-    void deleteTipoProdutoExistingId() {
+    void deleteTipoProdutoExistingId() throws Exception {
         when(tipoProdutoRepository.existsById(1L)).thenReturn(true);
         doNothing().when(tipoProdutoRepository).deleteById(1L);
 
@@ -102,7 +102,7 @@ public class TipoProdutoServiceTest {
     }
 
     @Test
-    void deleteTipoProdutoNonExistingId() {
+    void deleteTipoProdutoNonExistingId() throws Exception {
         when(tipoProdutoRepository.existsById(1L)).thenReturn(false);
 
         boolean result = tipoProdutoService.deleteTipoProduto(1L);

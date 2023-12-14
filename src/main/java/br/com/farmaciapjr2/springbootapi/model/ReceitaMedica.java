@@ -4,10 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "receitas_medica")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "receitas_medica", schema = "bdfarmacia")
 @Data
-public class ReceitaMedica {
+public class ReceitaMedica implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

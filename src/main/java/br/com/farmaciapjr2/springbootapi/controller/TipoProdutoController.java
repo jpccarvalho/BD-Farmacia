@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
+import br.com.farmaciapjr2.springbootapi.exceptions.ForeignKeyConstraintException;
 import br.com.farmaciapjr2.springbootapi.model.TipoProduto;
 import br.com.farmaciapjr2.springbootapi.service.TipoProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class TipoProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTipoProduto(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTipoProduto(@PathVariable Long id) throws Exception {
         if (tipoProdutoService.deleteTipoProduto(id)) {
             return ResponseEntity.noContent().build();
         } else {

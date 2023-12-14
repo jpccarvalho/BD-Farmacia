@@ -1,8 +1,10 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
+import br.com.farmaciapjr2.springbootapi.exceptions.ForeignKeyConstraintException;
 import br.com.farmaciapjr2.springbootapi.model.TipoProduto;
 import br.com.farmaciapjr2.springbootapi.repository.TipoProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,12 +37,16 @@ public class TipoProdutoService {
         }
     }
 
-    public boolean deleteTipoProduto(Long id) {
-        if (tipoProdutoRepository.existsById(id)) {
-            tipoProdutoRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
+    public boolean deleteTipoProduto(Long id) throws Exception {
+        try {
+            if (tipoProdutoRepository.existsById(id)) {
+                tipoProdutoRepository.deleteById(id);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            throw new ForeignKeyConstraintException("Cannot delete or update a parent row: a foreign key constraint fails", e);
         }
     }
 }
