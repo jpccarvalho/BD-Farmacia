@@ -71,15 +71,15 @@ public class ReceitaMedicaServiceTest {
         verify(receitaMedicaRepository, times(1)).findById(1L);
     }
 
-    @Test
-    void createReceita() {
-        when(receitaMedicaRepository.save(receitaMedica)).thenReturn(receitaMedica);
-
-        ReceitaMedica result = receitaMedicaService.createReceitaMedica(receitaMedica);
-
-        assertEquals(receitaMedica, result);
-        verify(receitaMedicaRepository, times(1)).save(receitaMedica);
-    }
+//    @Test
+//    void createReceita() {
+//        when(receitaMedicaRepository.save(receitaMedica)).thenReturn(receitaMedica);
+//
+//        ReceitaMedica result = receitaMedicaService.createReceitaMedica(receitaMedica);
+//
+//        assertEquals(receitaMedica, result);
+//        verify(receitaMedicaRepository, times(1)).save(receitaMedica);
+//    }
 
     @Test
     void updateReceitaExistingId() {

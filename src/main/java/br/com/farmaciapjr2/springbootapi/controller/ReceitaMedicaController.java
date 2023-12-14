@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
+import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
 import br.com.farmaciapjr2.springbootapi.model.ReceitaMedica;
 import br.com.farmaciapjr2.springbootapi.service.ReceitaMedicaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class ReceitaMedicaController {
     }
 
     @PostMapping
-    public ResponseEntity<ReceitaMedica> createReceitaMedica(@RequestBody ReceitaMedica receitaMedica) {
+    public ResponseEntity<ReceitaMedica> createReceitaMedica(@RequestBody ReceitaMedicaDTO receitaMedica) {
+
         ReceitaMedica savedReceitaMedica = receitaMedicaService.createReceitaMedica(receitaMedica);
         return ResponseEntity.ok(savedReceitaMedica);
     }

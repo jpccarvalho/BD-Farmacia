@@ -1,7 +1,13 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
+import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
+import br.com.farmaciapjr2.springbootapi.model.Medico;
+import br.com.farmaciapjr2.springbootapi.model.ProdutoCompra;
 import br.com.farmaciapjr2.springbootapi.model.ReceitaMedica;
+import br.com.farmaciapjr2.springbootapi.repository.MedicoRepository;
+import br.com.farmaciapjr2.springbootapi.repository.ProdutoCompraRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ReceitaMedicaRepository;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +20,12 @@ public class ReceitaMedicaService {
     @Autowired
     private ReceitaMedicaRepository receitaMedicaRepository;
 
+    @Autowired
+    private ProdutoCompraRepository produtoCompraRepository;
+
+    @Autowired
+    private MedicoRepository medicoRepository;
+
     public List<ReceitaMedica> getAllReceitaMedicas() {
         return receitaMedicaRepository.findAll();
     }
@@ -22,8 +34,22 @@ public class ReceitaMedicaService {
         return receitaMedicaRepository.findById(id);
     }
 
-    public ReceitaMedica createReceitaMedica(ReceitaMedica receitaMedica) {
-        return receitaMedicaRepository.save(receitaMedica);
+    public ReceitaMedica createReceitaMedica(@NonNull ReceitaMedicaDTO receitaMedicaDto) {
+
+        if(produtoCompraRepository.existsById(receitaMedicaDto.getId_produtoCompra())
+        && medicoRepository.existsById(receitaMedicaDto.getId_produtoCompra())){
+            ProdutoCompra pc = produtoCompraRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
+            Medico medico = medicoRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
+            ReceitaMedica receitaMedica = ReceitaMedica.builder()
+                    .produtoCompra(pc)
+                    .medico(medico)
+                    .receita(receitaMedicaDto.getReceita())
+                    .build();
+            System.out.println("");
+            return receitaMedicaRepository.save(receitaMedica);
+        }
+
+        return ReceitaMedica.builder().build();
     }
 
     public Optional<ReceitaMedica> updateReceitaMedica(Long id, ReceitaMedica receitaMedica) {

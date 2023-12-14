@@ -7,6 +7,9 @@ import lombok.*;
 import java.io.Serializable;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "fabricantes", schema = "bdfarmacia")
 @Data
 public class Fabricante implements Serializable {

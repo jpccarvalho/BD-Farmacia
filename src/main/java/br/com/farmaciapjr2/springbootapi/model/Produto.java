@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "produtos", schema = "bdfarmacia")
 @Data
 public class Produto implements Serializable {

@@ -8,6 +8,8 @@ import lombok.*;
 
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "compras", schema = "bdfarmacia")
 @Data
 public class Compra implements Serializable {
