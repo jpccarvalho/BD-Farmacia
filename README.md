@@ -12,7 +12,9 @@
 
 O projeto consiste em um sistema de gerenciamento de uma farmacia, onde é possível cadastrar clientes, produtos e vendas.
 
-O projeto foi desenvolvido utilizando Java 21, e para a sua execução é necessário instalar os plugins do ```Lombok``` e para realizar o acesso do swagger é através da url: ```http://localhost:8080/swagger-ui/index.htm```
+O projeto foi desenvolvido utilizando Java 21, e para a sua execução é necessário instalar os plugins do ```Lombok``` e para realizar o acesso do swagger é através da url: ```http://localhost:8080/swagger-ui/index.html```
+
+Para criar o banco de dados, basta utilizar o script do Dump que está na pasta ```DB-SQL-scripts```.
 
 ## Sobre o desenvolvimento:
 
