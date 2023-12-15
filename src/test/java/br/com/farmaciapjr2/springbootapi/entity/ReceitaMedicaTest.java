@@ -27,7 +27,7 @@ public class ReceitaMedicaTest {
                 .build();
     }
     @Test
-    @DisplayName("Teste de criação do cliente")
+    @DisplayName("Teste de criação do receita medica")
     void testeDeCriacaoReceitaMedica() {
         ReceitaMedica rm = ReceitaMedica.builder()
                 .id(1L)

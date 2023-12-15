@@ -19,10 +19,12 @@ public class Compra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
+    @NonNull
     @Temporal(TemporalType.DATE)
     private Date dataCompra;
 }
