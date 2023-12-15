@@ -19,14 +19,17 @@ public class ReceitaMedica implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "id_produto_compra")
     private ProdutoCompra produtoCompra;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "id_medico")
     private Medico medico;
 
+    @NonNull
     @JsonProperty("receita")
     private String receita;
 
