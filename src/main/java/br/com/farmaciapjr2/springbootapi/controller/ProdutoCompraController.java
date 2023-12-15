@@ -1,5 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
+import br.com.farmaciapjr2.springbootapi.dto.ProdutoCompraDTO;
 import br.com.farmaciapjr2.springbootapi.entity.ProdutoCompra;
 import br.com.farmaciapjr2.springbootapi.service.ProdutoCompraService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class ProdutoCompraController {
     }
 
     @PostMapping
-    public ResponseEntity<ProdutoCompra> createProdutoCompra(@RequestBody ProdutoCompra produtoCompra) {
-        ProdutoCompra savedProdutoCompra = produtoCompraService.createProdutoCompra(produtoCompra);
+    public ResponseEntity<ProdutoCompra> createProdutoCompra(@RequestBody ProdutoCompraDTO produtoCompraDto) {
+        ProdutoCompra savedProdutoCompra = produtoCompraService.createProdutoCompra(produtoCompraDto);
         return ResponseEntity.ok(savedProdutoCompra);
     }
 
