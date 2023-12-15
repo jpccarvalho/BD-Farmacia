@@ -1,7 +1,13 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
+import br.com.farmaciapjr2.springbootapi.dto.ProdutoDTO;
+import br.com.farmaciapjr2.springbootapi.entity.Fabricante;
 import br.com.farmaciapjr2.springbootapi.entity.Produto;
+import br.com.farmaciapjr2.springbootapi.entity.TipoProduto;
+import br.com.farmaciapjr2.springbootapi.repository.FabricanteRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ProdutoRepository;
+import br.com.farmaciapjr2.springbootapi.repository.TipoProdutoRepository;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +19,12 @@ public class ProdutoService {
 
     @Autowired
     private ProdutoRepository produtoRepository;
+
+    @Autowired
+    private TipoProdutoRepository tipoProdutoRepository;
+
+    @Autowired
+    private FabricanteRepository fabricanteRepository;
 
     public List<Produto> getAllProdutos() {
         return produtoRepository.findAll();
@@ -29,8 +41,24 @@ public class ProdutoService {
         return produtoRepository.findById(id);
     }
 
-    public Produto createProduto(Produto produto) {
-        return produtoRepository.save(produto);
+    public Produto createProduto(@NonNull ProdutoDTO produtoDTO) {
+        if(tipoProdutoRepository.existsById(produtoDTO.getTipoProdutoId())
+        && fabricanteRepository.existsById(produtoDTO.getFabricanteId())){
+            Fabricante fabricante = fabricanteRepository.getReferenceById(produtoDTO.getFabricanteId());
+            TipoProduto tp = tipoProdutoRepository.getReferenceById(produtoDTO.getFabricanteId());
+
+            return produtoRepository.save(Produto
+                    .builder()
+                    .id(produtoDTO.getId())
+                    .tipoProduto(tp)
+                    .fabricante(fabricante)
+                    .produto(produtoDTO.getProduto())
+                    .designacao(produtoDTO.getDesignacao())
+                    .composicao(produtoDTO.getComposicao())
+                    .precoVenda(produtoDTO.getPrecoVenda())
+                    .build());
+        }
+        return produtoRepository.save(Produto.builder().build());
     }
 
     public Optional<Produto> updateProduto(Long id, Produto produto) {
