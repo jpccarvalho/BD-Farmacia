@@ -1,5 +1,6 @@
-package br.com.farmaciapjr2.springbootapi.model;
+package br.com.farmaciapjr2.springbootapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "compras", schema = "bdfarmacia")
 @Data
 public class Compra implements Serializable {

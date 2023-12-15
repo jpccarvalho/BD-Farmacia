@@ -3,7 +3,7 @@ package br.com.farmaciapjr2.springbootapi.service;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import br.com.farmaciapjr2.springbootapi.model.Cliente;
+import br.com.farmaciapjr2.springbootapi.entity.Cliente;
 import br.com.farmaciapjr2.springbootapi.repository.ClienteRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

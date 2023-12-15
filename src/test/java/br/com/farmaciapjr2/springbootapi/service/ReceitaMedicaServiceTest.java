@@ -1,8 +1,7 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
-import br.com.farmaciapjr2.springbootapi.model.*;
+import br.com.farmaciapjr2.springbootapi.entity.*;
 import br.com.farmaciapjr2.springbootapi.repository.ReceitaMedicaRepository;
-import br.com.farmaciapjr2.springbootapi.repository.TipoProdutoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

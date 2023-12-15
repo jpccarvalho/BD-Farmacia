@@ -1,6 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
-import br.com.farmaciapjr2.springbootapi.model.Medico;
+import br.com.farmaciapjr2.springbootapi.entity.Medico;
 import br.com.farmaciapjr2.springbootapi.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
 import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
-import br.com.farmaciapjr2.springbootapi.model.Medico;
-import br.com.farmaciapjr2.springbootapi.model.ProdutoCompra;
-import br.com.farmaciapjr2.springbootapi.model.ReceitaMedica;
+import br.com.farmaciapjr2.springbootapi.entity.Medico;
+import br.com.farmaciapjr2.springbootapi.entity.ProdutoCompra;
+import br.com.farmaciapjr2.springbootapi.entity.ReceitaMedica;
 import br.com.farmaciapjr2.springbootapi.repository.MedicoRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ProdutoCompraRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ReceitaMedicaRepository;
@@ -40,12 +40,12 @@ public class ReceitaMedicaService {
         && medicoRepository.existsById(receitaMedicaDto.getId_produtoCompra())){
             ProdutoCompra pc = produtoCompraRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
             Medico medico = medicoRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
-            ReceitaMedica receitaMedica = ReceitaMedica.builder()
-                    .produtoCompra(pc)
-                    .medico(medico)
-                    .receita(receitaMedicaDto.getReceita())
-                    .build();
-            System.out.println("");
+                   ReceitaMedica receitaMedica = ReceitaMedica.builder()
+                            .produtoCompra(pc)
+                            .medico(medico)
+                            .receita(receitaMedicaDto.getReceita())
+                            .build();
+
             return receitaMedicaRepository.save(receitaMedica);
         }
 

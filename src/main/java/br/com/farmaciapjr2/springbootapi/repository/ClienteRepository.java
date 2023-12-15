@@ -1,10 +1,8 @@
 package br.com.farmaciapjr2.springbootapi.repository;
 
-import br.com.farmaciapjr2.springbootapi.model.Cliente;
-import br.com.farmaciapjr2.springbootapi.model.Compra;
+import br.com.farmaciapjr2.springbootapi.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

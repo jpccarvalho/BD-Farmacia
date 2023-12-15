@@ -1,7 +1,7 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
 import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
-import br.com.farmaciapjr2.springbootapi.model.ReceitaMedica;
+import br.com.farmaciapjr2.springbootapi.entity.ReceitaMedica;
 import br.com.farmaciapjr2.springbootapi.service.ReceitaMedicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

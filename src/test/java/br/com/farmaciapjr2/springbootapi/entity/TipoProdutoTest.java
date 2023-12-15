@@ -1,4 +1,4 @@
-package br.com.farmaciapjr2.springbootapi.model;
+package br.com.farmaciapjr2.springbootapi.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
