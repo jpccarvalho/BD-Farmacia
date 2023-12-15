@@ -157,7 +157,7 @@ public class ReceitaMedicaServiceTest {
     }
 
     @Test
-    void deleteMedicoExistingId() {
+    void deleteReceitaExistingId() {
         when(receitaMedicaRepository.existsById(1L)).thenReturn(true);
         doNothing().when(receitaMedicaRepository).deleteById(1L);
 
@@ -169,7 +169,7 @@ public class ReceitaMedicaServiceTest {
     }
 
     @Test
-    void deleteMedicoNonExistingId() {
+    void deleteReceitaNonExistingId() {
         when(receitaMedicaRepository.existsById(1L)).thenReturn(false);
 
         boolean result = receitaMedicaService.deleteReceitaMedica(1L);
