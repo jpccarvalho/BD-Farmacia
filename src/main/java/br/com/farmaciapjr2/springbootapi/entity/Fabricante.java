@@ -19,6 +19,7 @@ public class Fabricante implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @JsonProperty("fabricante")
     private String fabricante;
 }
