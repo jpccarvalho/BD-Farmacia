@@ -1,10 +1,9 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
 import br.com.farmaciapjr2.springbootapi.exceptions.ForeignKeyConstraintException;
-import br.com.farmaciapjr2.springbootapi.model.TipoProduto;
+import br.com.farmaciapjr2.springbootapi.entity.TipoProduto;
 import br.com.farmaciapjr2.springbootapi.repository.TipoProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,8 +1,10 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
-import br.com.farmaciapjr2.springbootapi.model.*;
+import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
+import br.com.farmaciapjr2.springbootapi.entity.*;
+import br.com.farmaciapjr2.springbootapi.repository.MedicoRepository;
+import br.com.farmaciapjr2.springbootapi.repository.ProdutoCompraRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ReceitaMedicaRepository;
-import br.com.farmaciapjr2.springbootapi.repository.TipoProdutoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +22,10 @@ import static org.mockito.Mockito.*;
 public class ReceitaMedicaServiceTest {
     @Mock
     private ReceitaMedicaRepository receitaMedicaRepository;
+    @Mock
+    private ProdutoCompraRepository produtoCompraRepository;
+    @Mock
+    private MedicoRepository medicoRepository;
 
     @InjectMocks
     private ReceitaMedicaService receitaMedicaService;
@@ -29,6 +36,43 @@ public class ReceitaMedicaServiceTest {
     private ProdutoCompra produtoCompra;
     @BeforeEach
     void setUp() {
+
+        Cliente cliente = Cliente.builder()
+                .id(1L)
+                .nome("João Silva")
+                .endereco("Rua ABC, 123")
+                .telefone("11999999999")
+                .codigoPostal("12345-678")
+                .localidade("São Paulo")
+                .numeroContribuinte("123.456.789-00")
+                .build();
+
+        Compra compra = Compra.builder()
+                .id(1L)
+                .cliente(cliente)
+                .dataCompra(new Date())
+                .build();
+
+        Fabricante fabricante = Fabricante.builder()
+                .id(1L)
+                .fabricante("fabricante1")
+                .build();
+
+        TipoProduto tipoProduto = TipoProduto.builder()
+                .id(1L)
+                .tipo("tipo1")
+                .build();
+
+        Produto produto = Produto.builder()
+                .id(1L)
+                .composicao("composicao1")
+                .designacao("designacao1")
+                .produto("produto1")
+                .precoVenda(10D)
+                .tipoProduto(tipoProduto)
+                .fabricante(fabricante)
+                .build();
+
         medico = Medico.builder()
                 .id(1L)
                 .nome("Dr. Smith")
@@ -38,8 +82,8 @@ public class ReceitaMedicaServiceTest {
         produtoCompra = ProdutoCompra.builder()
                 .id(1L)
                 .quantidade(1)
-                .compra(Compra.builder().build())
-                .produto(Produto.builder().build())
+                .compra(compra)
+                .produto(produto)
                 .build();
 
         receitaMedica = ReceitaMedica.builder()
@@ -74,8 +118,15 @@ public class ReceitaMedicaServiceTest {
     @Test
     void createReceita() {
         when(receitaMedicaRepository.save(receitaMedica)).thenReturn(receitaMedica);
+        when(medicoRepository.existsById(1L)).thenReturn(true);
+        when(produtoCompraRepository.existsById(1L)).thenReturn(true);
+        when(medicoRepository.getReferenceById(1L)).thenReturn(medico);
+        when(produtoCompraRepository.getReferenceById(1L)).thenReturn(produtoCompra);
 
-        ReceitaMedica result = receitaMedicaService.createReceitaMedica(receitaMedica);
+
+        ReceitaMedicaDTO rm = new ReceitaMedicaDTO(1L, 1L, 1L, "receita1.pdf");
+
+        ReceitaMedica result = receitaMedicaService.createReceitaMedica(rm);
 
         assertEquals(receitaMedica, result);
         verify(receitaMedicaRepository, times(1)).save(receitaMedica);

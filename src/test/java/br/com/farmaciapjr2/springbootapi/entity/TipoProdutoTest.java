@@ -1,4 +1,4 @@
-package br.com.farmaciapjr2.springbootapi.model;
+package br.com.farmaciapjr2.springbootapi.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,17 +16,6 @@ class TipoProdutoTest {
                 .id(1L)
                 .tipo("Cosmético")
                 .build();
-    }
-
-    @Test
-    void testGetTipo() {
-        assertEquals("Cosmético", tipoProduto.getTipo());
-    }
-
-    @Test
-    void testSetTipo() {
-        tipoProduto.setTipo("Higiene");
-        assertEquals("Higiene", tipoProduto.getTipo());
     }
 
     @Test

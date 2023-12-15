@@ -1,6 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
-import br.com.farmaciapjr2.springbootapi.model.Medico;
+import br.com.farmaciapjr2.springbootapi.entity.Medico;
 import br.com.farmaciapjr2.springbootapi.repository.MedicoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

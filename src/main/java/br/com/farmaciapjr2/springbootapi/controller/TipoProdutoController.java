@@ -1,7 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.controller;
 
-import br.com.farmaciapjr2.springbootapi.exceptions.ForeignKeyConstraintException;
-import br.com.farmaciapjr2.springbootapi.model.TipoProduto;
+import br.com.farmaciapjr2.springbootapi.entity.TipoProduto;
 import br.com.farmaciapjr2.springbootapi.service.TipoProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

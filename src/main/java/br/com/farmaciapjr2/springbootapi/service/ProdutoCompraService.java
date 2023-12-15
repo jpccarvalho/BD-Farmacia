@@ -1,6 +1,6 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
-import br.com.farmaciapjr2.springbootapi.model.ProdutoCompra;
+import br.com.farmaciapjr2.springbootapi.entity.ProdutoCompra;
 import br.com.farmaciapjr2.springbootapi.repository.ProdutoCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
