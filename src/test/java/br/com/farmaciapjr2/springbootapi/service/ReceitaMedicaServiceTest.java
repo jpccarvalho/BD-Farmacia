@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,6 +36,43 @@ public class ReceitaMedicaServiceTest {
     private ProdutoCompra produtoCompra;
     @BeforeEach
     void setUp() {
+
+        Cliente cliente = Cliente.builder()
+                .id(1L)
+                .nome("João Silva")
+                .endereco("Rua ABC, 123")
+                .telefone("11999999999")
+                .codigoPostal("12345-678")
+                .localidade("São Paulo")
+                .numeroContribuinte("123.456.789-00")
+                .build();
+
+        Compra compra = Compra.builder()
+                .id(1L)
+                .cliente(cliente)
+                .dataCompra(new Date())
+                .build();
+
+        Fabricante fabricante = Fabricante.builder()
+                .id(1L)
+                .fabricante("fabricante1")
+                .build();
+
+        TipoProduto tipoProduto = TipoProduto.builder()
+                .id(1L)
+                .tipo("tipo1")
+                .build();
+
+        Produto produto = Produto.builder()
+                .id(1L)
+                .composicao("composicao1")
+                .designacao("designacao1")
+                .produto("produto1")
+                .precoVenda(10D)
+                .tipoProduto(tipoProduto)
+                .fabricante(fabricante)
+                .build();
+
         medico = Medico.builder()
                 .id(1L)
                 .nome("Dr. Smith")
@@ -44,8 +82,8 @@ public class ReceitaMedicaServiceTest {
         produtoCompra = ProdutoCompra.builder()
                 .id(1L)
                 .quantidade(1)
-                .compra(Compra.builder().build())
-                .produto(Produto.builder().build())
+                .compra(compra)
+                .produto(produto)
                 .build();
 
         receitaMedica = ReceitaMedica.builder()

@@ -3,6 +3,9 @@ package br.com.farmaciapjr2.springbootapi.entity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 public class ReceitaMedicaTest {
 
@@ -13,6 +16,42 @@ public class ReceitaMedicaTest {
     private ProdutoCompra produtoCompra;
     @BeforeEach
     void setUp() {
+        Cliente cliente = Cliente.builder()
+                .id(1L)
+                .nome("João Silva")
+                .endereco("Rua ABC, 123")
+                .telefone("11999999999")
+                .codigoPostal("12345-678")
+                .localidade("São Paulo")
+                .numeroContribuinte("123.456.789-00")
+                .build();
+
+        Compra compra = Compra.builder()
+                .id(1L)
+                .cliente(cliente)
+                .dataCompra(new Date())
+                .build();
+
+        Fabricante fabricante = Fabricante.builder()
+                .id(1L)
+                .fabricante("fabricante1")
+                .build();
+
+        TipoProduto tipoProduto = TipoProduto.builder()
+                .id(1L)
+                .tipo("tipo1")
+                .build();
+
+        Produto produto = Produto.builder()
+                .id(1L)
+                .composicao("composicao1")
+                .designacao("designacao1")
+                .produto("produto1")
+                .precoVenda(10D)
+                .tipoProduto(tipoProduto)
+                .fabricante(fabricante)
+                .build();
+
         medico = Medico.builder()
                 .id(1L)
                 .nome("Dr. Smith")
@@ -22,8 +61,8 @@ public class ReceitaMedicaTest {
         produtoCompra = ProdutoCompra.builder()
                 .id(1L)
                 .quantidade(1)
-                .compra(Compra.builder().build())
-                .produto(Produto.builder().build())
+                .compra(compra)
+                .produto(produto)
                 .build();
     }
     @Test
