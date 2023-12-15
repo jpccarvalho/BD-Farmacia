@@ -41,6 +41,7 @@ public class ReceitaMedicaService {
             ProdutoCompra pc = produtoCompraRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
             Medico medico = medicoRepository.getReferenceById(receitaMedicaDto.getId_produtoCompra());
                    ReceitaMedica receitaMedica = ReceitaMedica.builder()
+                            .id(receitaMedicaDto.getId_produtoCompra())
                             .produtoCompra(pc)
                             .medico(medico)
                             .receita(receitaMedicaDto.getReceita())

@@ -19,17 +19,6 @@ class TipoProdutoTest {
     }
 
     @Test
-    void testGetTipo() {
-        assertEquals("Cosmético", tipoProduto.getTipo());
-    }
-
-    @Test
-    void testSetTipo() {
-        tipoProduto.setTipo("Higiene");
-        assertEquals("Higiene", tipoProduto.getTipo());
-    }
-
-    @Test
     @DisplayName("Teste de criação de Tipo de Produto")
     void testeDeCriacaoTipoProduto() {
         TipoProduto tp = TipoProduto

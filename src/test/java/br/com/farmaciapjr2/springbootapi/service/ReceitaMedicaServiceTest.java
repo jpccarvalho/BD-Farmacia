@@ -1,6 +1,9 @@
 package br.com.farmaciapjr2.springbootapi.service;
 
+import br.com.farmaciapjr2.springbootapi.dto.ReceitaMedicaDTO;
 import br.com.farmaciapjr2.springbootapi.entity.*;
+import br.com.farmaciapjr2.springbootapi.repository.MedicoRepository;
+import br.com.farmaciapjr2.springbootapi.repository.ProdutoCompraRepository;
 import br.com.farmaciapjr2.springbootapi.repository.ReceitaMedicaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +21,10 @@ import static org.mockito.Mockito.*;
 public class ReceitaMedicaServiceTest {
     @Mock
     private ReceitaMedicaRepository receitaMedicaRepository;
+    @Mock
+    private ProdutoCompraRepository produtoCompraRepository;
+    @Mock
+    private MedicoRepository medicoRepository;
 
     @InjectMocks
     private ReceitaMedicaService receitaMedicaService;
@@ -70,15 +77,22 @@ public class ReceitaMedicaServiceTest {
         verify(receitaMedicaRepository, times(1)).findById(1L);
     }
 
-//    @Test
-//    void createReceita() {
-//        when(receitaMedicaRepository.save(receitaMedica)).thenReturn(receitaMedica);
-//
-//        ReceitaMedica result = receitaMedicaService.createReceitaMedica(receitaMedica);
-//
-//        assertEquals(receitaMedica, result);
-//        verify(receitaMedicaRepository, times(1)).save(receitaMedica);
-//    }
+    @Test
+    void createReceita() {
+        when(receitaMedicaRepository.save(receitaMedica)).thenReturn(receitaMedica);
+        when(medicoRepository.existsById(1L)).thenReturn(true);
+        when(produtoCompraRepository.existsById(1L)).thenReturn(true);
+        when(medicoRepository.getReferenceById(1L)).thenReturn(medico);
+        when(produtoCompraRepository.getReferenceById(1L)).thenReturn(produtoCompra);
+
+
+        ReceitaMedicaDTO rm = new ReceitaMedicaDTO(1L, 1L, 1L, "receita1.pdf");
+
+        ReceitaMedica result = receitaMedicaService.createReceitaMedica(rm);
+
+        assertEquals(receitaMedica, result);
+        verify(receitaMedicaRepository, times(1)).save(receitaMedica);
+    }
 
     @Test
     void updateReceitaExistingId() {
