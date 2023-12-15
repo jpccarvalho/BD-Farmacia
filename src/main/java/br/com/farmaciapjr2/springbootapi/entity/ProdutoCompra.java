@@ -19,14 +19,17 @@ public class ProdutoCompra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "id_compra")
     private Compra compra;
 
+    @NonNull
     @JsonProperty("quantidade")
-    private int quantidade;
+    private Integer quantidade;
 }
